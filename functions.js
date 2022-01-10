@@ -71,7 +71,7 @@ function search(event) {
   let apiKey = "00ece93f77449f994396ff1b07a7d1e4";
   let endpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
   let apiUrl = `${endpoint}${cityNameInput}&appid=${apiKey}&units=${units}`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(showWeather);
 }
 let form = document.querySelector("#search-form");
@@ -82,9 +82,9 @@ form.addEventListener("submit", search);
 function showWeather(response) {
   let cityNameInput = response.data.name;
   let temperature = Math.round(response.data.main.temp);
-  console.log(temperature);
+
   let description = response.data.weather[0].description;
-  console.log(description);
+
   let humidity = response.data.main.humidity;
   let windSpeed = response.data.wind.speed;
   let temperatureElement = document.querySelector("#temp-today");
