@@ -1,0 +1,61 @@
+body {
+  max-width: 500px;
+  margin: auto;
+}
+h1 {
+  color: #094361;
+}
+
+.card-body {
+  border: 1px solid #094361;
+  border-radius: 30px;
+  text-align: right;
+  background-color: aliceblue;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
+}
+.display-todays-info {
+  margin-top: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  background-color: unset;
+}
+.precip-today {
+  font-size: 15px;
+}
+.temp-today {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.tomorrow,
+.after-tomorrow,
+.in-3-days,
+.in-4-days,
+.in-5-days {
+  text-align: center;
+  border: 1px solid;
+  border-radius: 30px;
+  margin-top: 12px;
+  border-color: rgb(193, 226, 255);
+}
+.precip {
+  color: #19729e;
+}
+.geolocation-button {
+  background-color: aliceblue;
+  color: #094361;
+  border: 1px solid;
+  border-radius: 30px;
+  margin-top: 12px;
+  padding: 5px 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
+  transition: all 200ms ease-in-out;
+}
+.geolocation-button:hover {
+  box-shadow: unset;
+  text-decoration: underline;
+}
