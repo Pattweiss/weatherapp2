@@ -15,6 +15,16 @@ h1 {
   margin: auto;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
 }
+.btn {
+  border: 1px solid #094361;
+  color: #094361;
+}
+.btn:hover {
+  color: fff;
+  background-color: #094361;
+  border: #094361;
+}
+
 .display-todays-info {
   margin-top: 15px;
   position: relative;
