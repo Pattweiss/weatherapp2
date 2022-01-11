@@ -59,3 +59,7 @@ h1 {
   box-shadow: unset;
   text-decoration: underline;
 }
+.Open-source-link {
+  font-family: monospace;
+  font-size: 10px;
+}
