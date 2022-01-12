@@ -40,6 +40,9 @@ h1 {
   font-size: 35px;
   font-weight: bold;
 }
+.description:first-letter {
+  text-transform: capitalize;
+}
 
 .tomorrow,
 .after-tomorrow,
