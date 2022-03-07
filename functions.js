@@ -80,6 +80,7 @@ form.addEventListener("submit", search);
 
 //api weather
 function showWeather(response) {
+  console.log(response.data);
   let cityNameInput = response.data.name;
   let temperature = Math.round(response.data.main.temp);
 
@@ -91,12 +92,18 @@ function showWeather(response) {
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#precip-today");
   let windSpeedElement = document.querySelector("#wind-today");
+  let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = `${temperature}°C`;
   descriptionElement.innerHTML = description;
   humidityElement.innerHTML = `${humidity}%`;
   windSpeedElement.innerHTML = `${windSpeed} Kmh`;
   let h5 = document.querySelector("#card-city-name");
   h5.innerHTML = cityNameInput;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function showPosition(position) {
   let latitude = position.coords.latitude;

@@ -36,6 +36,11 @@ h1 {
 .precip-today {
   font-size: 15px;
 }
+.icon {
+  margin-right: 5px;
+  height: 64px;
+  width: 64px;
+}
 .temp-today {
   font-size: 35px;
   font-weight: bold;
