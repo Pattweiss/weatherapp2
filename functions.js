@@ -74,9 +74,6 @@ function search(event) {
 
   axios.get(apiUrl).then(showWeather);
 }
-let form = document.querySelector("#search-form");
-
-form.addEventListener("submit", search);
 
 //api weather
 function showWeather(response) {
@@ -93,6 +90,8 @@ function showWeather(response) {
   let humidityElement = document.querySelector("#precip-today");
   let windSpeedElement = document.querySelector("#wind-today");
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = `${temperature}°C`;
   descriptionElement.innerHTML = description;
   humidityElement.innerHTML = `${humidity}%`;
@@ -119,5 +118,35 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#temp-today");
+  //remove the active class of the celsius Link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°F`;
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp-today");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
+}
+
+let celsiusTemperatur = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
 let geoButton = document.querySelector("#geolocation-button");
 geoButton.addEventListener("click", getCurrentPosition);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);

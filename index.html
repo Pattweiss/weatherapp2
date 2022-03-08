@@ -25,7 +25,7 @@
       <h1>Currently in...</h1>
 
       <div class="card-body">
-        <form class="search-form" id="search-form">
+        <form class="search-form mb-3" id="search-form">
           <div class="search">
             <div class="row">
               <div class="col-9">
@@ -66,10 +66,13 @@
                 <br  />
                 <span class="last-updated">Last updated at:</span>
                 <span id="time"></span>
+                
+            
               </p>
               <p class="card-text weather-today">
                 <span class="icon"><img src="#" id="icon" alt="" class="icon-class"/></span>
-                <span class="temp-today" id="temp-today"></span><br />
+                <span class="temp-today" id="temp-today"></span>  <br/>
+                <span class="units"><a href="#" id="celsius-link" class="active">°C</a> | <a href="#" id="fahrenheit-link">°F</a></span><br />
                 <span class="description" id="description"></span
                 ><br /><span class="precip-today-emoji"><i class="fas fa-umbrella"></i></span><span class="precip-today" id="precip-today"
                   ></i>0%</span
@@ -133,7 +136,7 @@
         Weather in my city
       </button>
       <br>
-      <div class="Open-source-link"><a href="https://github.com/Pattweiss/weatherapp2.git" target="_blank">Open-source code</a>by Pattweiss</div>
+      <div class="Open-source-link"><a href="https://github.com/Pattweiss/weatherapp2.git" target="_blank">Open-source code</a> by Pattweiss</div>
     </div>
     <script src="functions.js"></script>
   </body>

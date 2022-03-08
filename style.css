@@ -5,7 +5,13 @@ body {
 h1 {
   color: #094361;
 }
-
+a {
+  text-decoration-line: unset;
+  color: #135677;
+}
+h5 {
+  font-size: 1.8rem;
+}
 .card-body {
   border: 1px solid #094361;
   border-radius: 30px;
@@ -40,6 +46,14 @@ h1 {
 .temp-today {
   font-size: 35px;
   font-weight: bold;
+}
+
+.weather-today .active {
+  color: black;
+  cursor: default;
+}
+.weather-today .active:hover {
+  text-decoration: none;
 }
 .icon-class {
   height: 65px;
