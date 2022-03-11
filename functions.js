@@ -61,6 +61,30 @@ function displayCurrentDate() {
 
 displayCurrentDate();
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = "";
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-12 tomorrow">
+              <span class="day-of-week"> ${day} </span>
+              <span class="emoji-pronos"
+                ><i class="fas fa-cloud-sun"></i>
+              </span>
+              <span class="min-temp">10°C</span>
+              <span class="max-temp">21°C</span>
+
+              <span class="precip">0%</span>
+            </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#city-input");
@@ -150,3 +174,4 @@ geoButton.addEventListener("click", getCurrentPosition);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
+displayForecast();
