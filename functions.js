@@ -90,7 +90,7 @@ function search(city) {
   let units = "metric";
   let apiKey = "00ece93f77449f994396ff1b07a7d1e4";
   let endpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
-  let apiUrl = `${endpoint}${cityNameInput}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `${endpoint}${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showWeather);
 }
@@ -188,5 +188,4 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let geoButton = document.querySelector("#geolocation-button");
 geoButton.addEventListener("click", getCurrentPosition);
-search("New York");
-displayForecast();
+search("Madrid");
