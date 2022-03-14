@@ -61,26 +61,46 @@ function displayCurrentDate() {
 
 displayCurrentDate();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-            <div class="col-12 tomorrow">
-              <span class="day-of-week"> ${day} </span>
-              <span class="emoji-pronos"
-                ><i class="fas fa-cloud-sun"></i>
-              </span>
-              <span class="min-temp">10°C</span>
-              <span class="max-temp">21°C</span>
 
-              <span class="precip">0%</span>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+            <div class="col-12 tomorrow">
+              <span class="day-of-week"> ${formatDay(forecastDay.dt)} </span>
+              <span class="emoji-pronos"
+                ><img src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
+                      alt=""
+                      width="28"
+                      />
+              </span>
+              <span class="min-temp">${Math.round(
+                forecastDay.temp.min
+              )}°C</span>
+              <span class="max-temp"><strong>${Math.round(
+                forecastDay.temp.max
+              )}°C</strong></span>
+
+              
             </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
